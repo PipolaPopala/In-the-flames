@@ -1,37 +1,10 @@
 import "./App.css";
 import { useState } from "react";
+import StepView from "./components/StepView";
+import { stepsData } from "./stepsData";
 
 const App = () => {
   const [step, setStep] = useState(0);
-
-  const steps = [
-    {
-      text: "Пора начинать",
-      options: [{ text: "Идти на встречу пламени", nextStep: 1 }],
-    }, // 0
-    {
-      text: "Вы находитесь в темном лесу. Выберите, куда пойти:",
-      options: [
-        { text: "Пойти налево", nextStep: 2 },
-        { text: "Пойти направо", nextStep: 3 },
-      ],
-    }, // 1
-    {
-      text: "Вы встретили гоблина. Что вы будете делать?",
-      options: [
-        { text: "Сразиться с ним", nextStep: 4 },
-        { text: "Попытаться убежать", nextStep: 5 },
-      ],
-    }, // 2
-    {
-      text: "Вы нашли сундук с сокровищами. Что вы будете делать?",
-      options: [
-        { text: "Открыть сундук", nextStep: 6 },
-        { text: "Пройти мимо", nextStep: 7 },
-      ],
-    }, // 3
-    // Далее можно добавить другие шаги
-  ];
 
   const handleOptionClick = (nextStep) => {
     setStep(nextStep);
@@ -49,16 +22,11 @@ const App = () => {
         </button>
       </header>
       <div className="content">
-        <p>{steps[step]?.text}</p>
-        <ul>
-          {steps[step]?.options.map((option, index) => (
-            <li key={index}>
-              <button onClick={() => handleOptionClick(option.nextStep)}>
-                {option.text}
-              </button>
-            </li>
-          ))}
-        </ul>
+        <StepView
+          texts={stepsData[step]?.texts}
+          options={stepsData[step]?.options}
+          handleOptionClick={handleOptionClick}
+        />
       </div>
     </main>
   );
