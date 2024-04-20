@@ -2,11 +2,15 @@ import PropTypes from "prop-types";
 
 const StepView = ({ texts = [], options = [], handleOptionClick }) => {
   return (
-    <div>
-      {texts.map((text, index) => (
-        <p key={index}>{text}</p>
-      ))}
-      <div>
+    <div className="content">
+      <div className="texts">
+        {texts.map((text, index) => (
+          <p key={index} className="text">
+            {text}
+          </p>
+        ))}
+      </div>
+      <div className="buttons">
         {options.map((option, index) => (
           <button
             type="button"

@@ -21,13 +21,11 @@ const App = () => {
           <img src="/favicon.ico" alt="" />
         </button>
       </header>
-      <div className="content">
-        <StepView
-          texts={stepsData[step]?.texts}
-          options={stepsData[step]?.options}
-          handleOptionClick={handleOptionClick}
-        />
-      </div>
+      <StepView
+        texts={stepsData[step]?.texts}
+        options={stepsData[step]?.options}
+        handleOptionClick={handleOptionClick}
+      />
     </main>
   );
 };
