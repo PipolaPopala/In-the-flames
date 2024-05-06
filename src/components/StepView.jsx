@@ -1,26 +1,30 @@
 import PropTypes from "prop-types";
 
-const StepView = ({ texts = [], options = [], handleOptionClick }) => {
+const StepView = ({ stepsData, handleOptionClick }) => {
+  const { texts, options } = stepsData;
   return (
-    <div className="content">
-      <div className="texts">
-        {texts.map((text, index) => (
-          <p key={index} className="text">
-            {text}
-          </p>
-        ))}
+    <div className="wrapper">
+      <div className="content-left">
+        <div className="texts">
+          {texts.map((text, index) => (
+            <p key={index} className="text">
+              {text}
+            </p>
+          ))}
+        </div>
+        <div className="buttons">
+          {options.map((option, index) => (
+            <button
+              type="button"
+              key={index}
+              onClick={() => handleOptionClick(option.nextStep)}
+            >
+              {option.text}
+            </button>
+          ))}
+        </div>
       </div>
-      <div className="buttons">
-        {options.map((option, index) => (
-          <button
-            type="button"
-            key={index}
-            onClick={() => handleOptionClick(option.nextStep)}
-          >
-            {option.text}
-          </button>
-        ))}
-      </div>
+      <div className="content-right"></div>
     </div>
   );
 };

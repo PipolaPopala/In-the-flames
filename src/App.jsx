@@ -12,20 +12,24 @@ const App = () => {
 
   return (
     <main>
-      <header>
-        <h1>In the flames</h1>
-        <button type="button" onClick={() => setStep(0)}>
+      <header className="header">
+        <p>header</p>
+        {/* <h1>In the flames</h1> */}
+        {/* <button type="button" onClick={() => setStep(0)}>
           Вернуться к началу
-        </button>
-        <button type="button">
+        </button> */}
+        {/* <button type="button">
           <img src="/favicon.ico" alt="" />
-        </button>
+        </button> */}
       </header>
-      <StepView
-        texts={stepsData[step]?.texts}
-        options={stepsData[step]?.options}
-        handleOptionClick={handleOptionClick}
-      />
+      <section className="section">
+        <StepView
+          stepsData={stepsData[step]}
+          // texts={stepsData[step]?.texts}
+          // options={stepsData[step]?.options}
+          handleOptionClick={handleOptionClick}
+        />
+      </section>
     </main>
   );
 };
