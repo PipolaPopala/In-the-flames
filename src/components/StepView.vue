@@ -1,4 +1,10 @@
-const StepView = ({ stepsData, handleOptionClick }) => {
+<script setup></script>
+
+<template></template>
+
+<style scoped></style>
+
+<!-- const StepView = ({ stepsData, handleOptionClick }) => {
   const { texts, options } = stepsData;
   return (
     <div className="wrapper">
@@ -54,4 +60,4 @@ const StepView = ({ stepsData, handleOptionClick }) => {
   );
 };
 
-export default StepView;
+export default StepView; -->
