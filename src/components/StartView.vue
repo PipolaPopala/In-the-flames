@@ -1,8 +1,8 @@
 <script setup>
-const props = defineProps({
-  stepData: Object,
-  handleOptionClick: Function
+defineProps({
+  stepData: Object
 })
+const emit = defineEmits(['optionClick'])
 </script>
 
 <template>
@@ -17,7 +17,7 @@ const props = defineProps({
           v-for="(option, index) in stepData.options"
           type="button"
           v-bind:key="index"
-          v-on:click="handleOptionClick(option.nextStep)"
+          v-on:click="emit('optionClick', option.nextStep)"
         >
           {{ option.text }}
         </button>
@@ -26,4 +26,4 @@ const props = defineProps({
   </div>
 </template>
 
-<style scoped></style>
+<!-- <style scoped></style> -->

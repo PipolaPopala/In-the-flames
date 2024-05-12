@@ -1,63 +1,34 @@
-<script setup></script>
+<script setup>
+import IconBackground from './icons/IconBackground.vue'
+defineProps({
+  stepData: Object
+})
+const emit = defineEmits(['optionClick'])
+</script>
 
-<template></template>
-
-<style scoped></style>
-
-<!-- const StepView = ({ stepsData, handleOptionClick }) => {
-  const { texts, options } = stepsData;
-  return (
-    <div className="wrapper">
-      <div className="content-left">
-        <div className="texts">
-          {texts.map((text, index) => (
-            <p key={index} className="text">
-              {text}
-            </p>
-          ))}
-        </div>
-        <div className="buttons">
-          {options.map((option, index) => (
-            <button
-              type="button"
-              key={index}
-              onClick={() => handleOptionClick(option.nextStep)}
-            >
-              {option.text}
-            </button>
-          ))}
-        </div>
+<template>
+  <div class="wrapper">
+    <div class="content-left">
+      <div class="texts">
+        <p v-for="(text, index) in stepData.texts" v-bind:key="{ index }" class="text">
+          {{ text }}
+        </p>
       </div>
-      <div className="content-right">
-        <svg
-          width="552"
-          height="552"
-          viewBox="0 0 552 552"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+      <div class="buttons">
+        <button
+          v-for="(option, index) in stepData.options"
+          type="button"
+          v-bind:key="index"
+          v-on:click="emit('optionClick', option.nextStep)"
         >
-          <rect
-            x="16.9633"
-            y="276"
-            width="366.334"
-            height="366.334"
-            transform="rotate(-45 16.9633 276)"
-            stroke="white"
-            stroke-opacity="0.25"
-          />
-          <rect
-            x="1.29289"
-            y="276"
-            width="388.495"
-            height="388.495"
-            transform="rotate(-45 1.29289 276)"
-            stroke="white"
-            stroke-opacity="0.25"
-          />
-        </svg>
+          {{ option.text }}
+        </button>
       </div>
     </div>
-  );
-};
+    <div class="content-right">
+      <IconBackground />
+    </div>
+  </div>
+</template>
 
-export default StepView; -->
+<!-- <style scoped></style> -->
