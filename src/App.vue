@@ -1,6 +1,9 @@
 <script setup>
+// lang="ts"
 import { ref, watch, computed } from 'vue'
+import { computedEager } from '@vueuse/core'
 import { stepsData } from './assets/stepsData'
+
 import StartView from './components/StartView.vue'
 import StepView from './components/StepView.vue'
 import IconVolume from './assets/icons/IconVolume.vue'
@@ -10,6 +13,7 @@ import IconSexMale from './assets/icons/IconSexMale.vue'
 const step = ref(0) // нынешний шаг
 const track = ref([0]) // массив предыдущих шагов
 const stepData = computed(() => stepsData[step.value])
+const isStart = computedEager(() => step.value === 0)
 
 watch(step, () => {
   track.value.push(step.value)
@@ -25,23 +29,23 @@ const handleOptionClick = (nextStep) => {
 <template>
   <main class="main">
     <header class="header">
-      <div v-if="step > 0" class="icons-wrapper">
+      <div v-show="!isStart" class="icons-wrapper">
         <IconVolume class="icon-header" />
         <IconPlayCircle class="icon-header" />
         <IconSexMale class="icon-header" />
       </div>
     </header>
     <section class="section">
-      <StepView v-if="step > 0" v-bind:stepData="stepData" v-on:option-click="handleOptionClick" />
+      <StepView v-if="!isStart" v-bind:stepData="stepData" v-on:option-click="handleOptionClick" />
       <StartView
-        v-else-if="step === 0"
+        v-else-if="isStart"
         v-bind:stepData="stepData"
         v-on:option-click="handleOptionClick"
       />
     </section>
   </main>
   <button
-    v-if="step > 0"
+    v-show="!isStart"
     type="button"
     class="buttons btn-play-again"
     v-on:click="handleOptionClick(0)"
@@ -50,4 +54,4 @@ const handleOptionClick = (nextStep) => {
   </button>
 </template>
 
-<!-- <style scoped></style> -->
+<style lang="scss" scoped></style>
