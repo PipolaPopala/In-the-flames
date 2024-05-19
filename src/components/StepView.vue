@@ -1,5 +1,5 @@
 <script setup>
-import IconBackground from './icons/IconBackground.vue'
+import IconBackground from '../assets/icons/IconBackground.vue'
 defineProps({
   stepData: Object
 })

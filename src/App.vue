@@ -3,12 +3,12 @@ import { ref, watch, computed } from 'vue'
 import { stepsData } from './assets/stepsData'
 import StartView from './components/StartView.vue'
 import StepView from './components/StepView.vue'
-import IconVolume from './components/icons/IconVolume.vue'
-import IconPlayCircle from './components/icons/IconPlayCircle.vue'
-import IconSexMale from './components/icons/IconSexMale.vue'
+import IconVolume from './assets/icons/IconVolume.vue'
+import IconPlayCircle from './assets/icons/IconPlayCircle.vue'
+import IconSexMale from './assets/icons/IconSexMale.vue'
 
 const step = ref(0) // нынешний шаг
-const track = ref([0]) // массив предыдущих шагов, можно будет использовать для некоего "дневника истории"
+const track = ref([0]) // массив предыдущих шагов
 const stepData = computed(() => stepsData[step.value])
 
 watch(step, () => {
