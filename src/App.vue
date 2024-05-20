@@ -4,25 +4,24 @@ import { ref, watch, computed } from 'vue'
 import { computedEager } from '@vueuse/core'
 import { stepsData } from './assets/stepsData'
 
+import { useStepStore } from './stores/step'
 import StartView from './components/StartView.vue'
 import StepView from './components/StepView.vue'
 import IconVolume from './assets/icons/IconVolume.vue'
 import IconPlayCircle from './assets/icons/IconPlayCircle.vue'
 import IconSexMale from './assets/icons/IconSexMale.vue'
 
-const step = ref(0) // нынешний шаг
-const track = ref([0]) // массив предыдущих шагов
-const stepData = computed(() => stepsData[step.value])
-const isStart = computedEager(() => step.value === 0)
+const stepStore = useStepStore();
+const stepData = computed(() => stepsData[stepStore.step])
+const isStart = computedEager(() => stepStore.step === 0)
 
-watch(step, () => {
-  track.value.push(step.value)
-  console.log('Все предыдущие шаги: ', track.value)
-  console.log('Нынешний шаг: ', step.value)
+watch(stepStore, () => {
+  console.log('Все предыдущие шаги: ', stepStore.track)
+  console.log('Нынешний шаг: ', stepStore.step)
 })
 
 const handleOptionClick = (nextStep) => {
-  step.value = nextStep
+  stepStore.handleOptionClick(nextStep)
 }
 </script>
 
