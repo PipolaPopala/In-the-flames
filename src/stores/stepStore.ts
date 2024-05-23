@@ -13,6 +13,7 @@ import { defineStore } from 'pinia';
 //       this.track.push(nextStep);
 //     },
 //   },
+//   persist: true,
 // });
 
 // composition style
@@ -32,6 +33,10 @@ export const useStepStore = defineStore('step', () => {
     track,
     handleOptionClick
   };
-});
+},
+{
+  persist: true,
+},
+);
 
 
