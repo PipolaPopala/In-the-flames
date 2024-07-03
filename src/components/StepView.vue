@@ -13,7 +13,7 @@ const options = computed(() => props.stepData?.options)
   <div class="wrapper">
     <div class="content-left">
       <div class="texts">
-        <p v-for="(text, index) in texts" v-bind:key="index">
+        <p v-for="(text, index) in texts" :key="index">
           {{ text }}
         </p>
       </div>
@@ -21,15 +21,15 @@ const options = computed(() => props.stepData?.options)
         <button
           v-for="(option, index) in options"
           type="button"
-          v-bind:key="index"
-          v-on:click="emit('optionClick', option.nextStep)"
+          :key="index"
+          @click="emit('optionClick', option.nextStep)"
         >
           {{ option.text }}
         </button>
       </div>
     </div>
     <div class="content-right">
-      <IconBackground />
+      <icon-background />
     </div>
   </div>
 </template>

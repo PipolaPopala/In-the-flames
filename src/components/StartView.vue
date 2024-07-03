@@ -13,7 +13,7 @@ const options = computed(() => props.stepData?.options)
     <div class="content-start">
       <h1 class="title-start">Наедине с пламенем</h1>
       <div class="texts-start">
-        <p v-for="(text, index) in texts" v-bind:key="index">
+        <p v-for="(text, index) in texts" :key="index">
           {{ text }}
         </p>
       </div>
@@ -21,8 +21,8 @@ const options = computed(() => props.stepData?.options)
         <button
           v-for="(option, index) in options"
           type="button"
-          v-bind:key="index"
-          v-on:click="emit('optionClick', option.nextStep)"
+          :key="index"
+          @click="emit('optionClick', option.nextStep)"
         >
           {{ option.text }}
         </button>
@@ -53,7 +53,7 @@ const options = computed(() => props.stepData?.options)
 }
 
 .title-start {
-  color: #B16A00;
+  color: #b16a00;
 }
 
 .texts-start {

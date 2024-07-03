@@ -10,7 +10,7 @@ import IconVolume from './assets/icons/IconVolume.vue'
 import IconPlayCircle from './assets/icons/IconPlayCircle.vue'
 import IconSexMale from './assets/icons/IconSexMale.vue'
 
-const stepStore = useStepStore();
+const stepStore = useStepStore()
 const stepData = computed(() => stepsData[stepStore.step])
 const isStart = computedEager(() => stepStore.step === 0)
 
@@ -28,25 +28,21 @@ const handleOptionClick = (nextStep: number) => {
   <main class="main">
     <header class="header">
       <div v-show="!isStart" class="icons-wrapper">
-        <IconVolume class="icon-header" />
-        <IconPlayCircle class="icon-header" />
-        <IconSexMale class="icon-header" />
+        <icon-volume class="icon-header" />
+        <icon-play-circle class="icon-header" />
+        <icon-sex-male class="icon-header" />
       </div>
     </header>
     <section>
-      <StepView v-if="!isStart" v-bind:stepData="stepData" v-on:option-click="handleOptionClick" />
-      <StartView
-        v-else-if="isStart"
-        v-bind:stepData="stepData"
-        v-on:option-click="handleOptionClick"
-      />
+      <step-view v-if="!isStart" :stepData="stepData" @option-click="handleOptionClick" />
+      <start-view v-else-if="isStart" :stepData="stepData" @option-click="handleOptionClick" />
     </section>
   </main>
   <button
     v-show="!isStart"
     type="button"
     class="buttons btn-play-again"
-    v-on:click="handleOptionClick(0)"
+    @click="handleOptionClick(0)"
   >
     Начать сначала
   </button>
@@ -56,7 +52,7 @@ const handleOptionClick = (nextStep: number) => {
 .main {
   max-width: 100%;
   margin: 0 auto;
-  color: #88847D;
+  color: #88847d;
 }
 
 .header {

@@ -1,6 +1,6 @@
-import { defineStore } from 'pinia';
+import { defineStore } from 'pinia'
 
-// option style
+// option api style:
 // export const useStepStore = defineStore({
 //   id: 'step',
 //   state: () => ({
@@ -16,27 +16,27 @@ import { defineStore } from 'pinia';
 //   persist: true,
 // });
 
-// composition style
-import { ref } from 'vue';
+// composition api style:
+import { ref } from 'vue'
 
-export const useStepStore = defineStore('step', () => {
-  const step = ref(0);
-  const track = ref([0]);
+export const useStepStore = defineStore(
+  'step',
+  () => {
+    const step = ref(0)
+    const track = ref([0])
 
-  function handleOptionClick(nextStep: number) {
-    step.value = nextStep;
-    track.value.push(nextStep);
+    function handleOptionClick(nextStep: number) {
+      step.value = nextStep
+      track.value.push(nextStep)
+    }
+
+    return {
+      step,
+      track,
+      handleOptionClick
+    }
+  },
+  {
+    persist: true
   }
-
-  return {
-    step,
-    track,
-    handleOptionClick
-  };
-},
-{
-  persist: true,
-},
-);
-
-
+)
