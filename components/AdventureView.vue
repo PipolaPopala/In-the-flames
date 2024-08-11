@@ -7,10 +7,10 @@ const props = defineProps({
 const emit = defineEmits(['optionClick'])
 const texts = computed(() => props.stepData?.texts)
 const options = computed(() => props.stepData?.options)
-</script>
+</script> -->
 
 <template>
-  <div class="wrapper">
+  <!-- <div class="wrapper">
     <div class="content-left">
       <div class="texts">
         <p v-for="(text, index) in texts" :key="index">
@@ -31,10 +31,11 @@ const options = computed(() => props.stepData?.options)
     <div class="content-right">
       <icon-background />
     </div>
-  </div>
+  </div> -->
+  <div>adventureView</div>
 </template>
 
-<style lang="scss" scoped>
+<!-- <style lang="scss" scoped>
 .wrapper {
   display: flex;
   justify-content: center;

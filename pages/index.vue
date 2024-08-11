@@ -1,12 +1,9 @@
 <script setup>
-import { useStepStore } from "../stores/stepStore";
-
 definePageMeta({
-  layout: "home"
+  layout: "home-layout",
 });
-
 useHead({
-  title: "Начало истории"
+  title: "Начало истории",
 });
 
 const stepStore = useStepStore();
@@ -19,6 +16,7 @@ const handleOptionClick = (nextStep) => {
 <template>
   <section class="section">
     <h1 class="title">Наедине с пламенем</h1>
+
     <div class="texts">
       <p>
         Перед вами одиночное приключение для игры Call of Cthulhu. Это история
@@ -35,8 +33,12 @@ const handleOptionClick = (nextStep) => {
       </p>
       <p>...Если подумать, не стоит садиться слишком близко к огню.</p>
     </div>
-    <a href="/adventure">Начать</a>
-    <!-- <button type="button" @click="handleOptionClick(1)">Начать</button> -->
+
+    <NuxtLink href="/adventure">
+      <ui-button class="primary" @click="handleOptionClick(1)"
+        >Начать приключение</ui-button
+      >
+    </NuxtLink>
   </section>
 </template>
 

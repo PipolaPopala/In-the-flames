@@ -26,67 +26,11 @@ const handleOptionClick = (nextStep: number) => {
 
 <template>
   <main class="main">
-    <header class="header">
-      <div v-show="!isStart" class="icons-wrapper">
-        <icon-volume class="icon-header" />
-        <icon-play-circle class="icon-header" />
-        <icon-sex-male class="icon-header" />
-      </div>
-    </header>
     <section>
       <step-view v-if="!isStart" :stepData="stepData" @option-click="handleOptionClick" />
-      <start-view v-else-if="isStart" :stepData="stepData" @option-click="handleOptionClick" />
     </section>
   </main>
-  <button
-    v-show="!isStart"
-    type="button"
-    class="buttons btn-play-again"
-    @click="handleOptionClick(0)"
-  >
-    Начать сначала
-  </button>
 </template>
 
 <style lang="scss" scoped>
-.main {
-  max-width: 100%;
-  margin: 0 auto;
-  color: #88847d;
-}
-
-.header {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  height: 150px;
-  padding-bottom: 5px;
-  padding-right: 45px;
-}
-
-.icons-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  column-gap: 30px;
-}
-
-.icon-header {
-  cursor: pointer;
-}
-
-.btn-play-again {
-  position: absolute;
-  bottom: 45px;
-  right: 45px;
-  background-color: transparent;
-  color: #676767;
-  border: 1px solid #676767;
-}
-
-.btn-play-again:hover {
-  color: #ea2433;
-  border: 1px solid #ea2433;
-  box-shadow: 0px 0px 5px #ea2433;
-}
 </style> -->

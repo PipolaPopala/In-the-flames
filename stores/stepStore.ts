@@ -20,23 +20,23 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 
 export const useStepStore = defineStore(
-    "step",
-    () => {
-        const step = ref(0);
-        const track = ref([0]);
+  "step",
+  () => {
+    const step = ref(0);
+    const track = ref([0]);
 
-        function handleOptionClick(nextStep: number) {
-            step.value = nextStep;
-            track.value.push(nextStep);
-        }
-
-        return {
-            step,
-            track,
-            handleOptionClick,
-        };
+    function handleOptionClick(nextStep: number) {
+      step.value = nextStep;
+      track.value.push(nextStep);
     }
-    //   {
-    //     persist: true
-    //   }
+
+    return {
+      step,
+      track,
+      handleOptionClick,
+    };
+  }
+  // {
+  //   persist: true,
+  // }
 );

@@ -1,23 +1,27 @@
 <script setup>
-import { useStepStore } from "../stores/stepStore";
+import { stepsData } from "../assets/stepsData.js";
 
 definePageMeta({
-  layout: "adventure",
+  layout: "adventure-layout",
 });
-
 useHead({
   title: "Приключение",
 });
 
 const stepStore = useStepStore();
 
+const stepData = computed(() => stepsData[stepStore.step]);
+
 const handleOptionClick = (nextStep) => {
-  stepStore.step = nextStep;
+  stepStore.handleOptionClick(nextStep);
 };
+
+watch(stepStore, () => {
+  console.log("Все предыдущие шаги: ", stepStore.track);
+  console.log("Нынешний шаг: ", stepStore.step);
+});
 </script>
 
 <template>
-  <div>
-    <h1>Adventure begins</h1>
-  </div>
+  <adventure-view :stepData="stepData" @option-click="handleOptionClick" />
 </template>
