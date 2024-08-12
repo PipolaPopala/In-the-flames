@@ -35,8 +35,8 @@ export const useStepStore = defineStore(
       track,
       handleOptionClick,
     };
+  },
+  {
+    persist: true,
   }
-  // {
-  //   persist: true,
-  // }
 );

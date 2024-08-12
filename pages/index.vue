@@ -11,6 +11,10 @@ const stepStore = useStepStore();
 const handleOptionClick = (nextStep) => {
   stepStore.step = nextStep;
 };
+
+onMounted(() => {
+  stepStore.step = 0;
+});
 </script>
 
 <template>
@@ -35,9 +39,9 @@ const handleOptionClick = (nextStep) => {
     </div>
 
     <NuxtLink href="/adventure">
-      <ui-button class="primary" @click="handleOptionClick(1)"
-        >Начать приключение</ui-button
-      >
+      <ui-button class="primary" @click="handleOptionClick(1)">
+        Начать приключение
+      </ui-button>
     </NuxtLink>
   </section>
 </template>

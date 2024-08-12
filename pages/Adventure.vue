@@ -1,5 +1,5 @@
 <script setup>
-import { stepsData } from "../assets/stepsData.js";
+import { stepsData } from "../public/files/stepsData.js";
 
 definePageMeta({
   layout: "adventure-layout",

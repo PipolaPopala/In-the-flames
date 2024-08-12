@@ -1,16 +1,15 @@
-<!-- <script setup>
-import { computed } from 'vue'
-import IconBackground from '../assets/icons/IconBackground.vue'
+<script setup>
+import { computed } from "vue";
 const props = defineProps({
-  stepData: Object
-})
-const emit = defineEmits(['optionClick'])
-const texts = computed(() => props.stepData?.texts)
-const options = computed(() => props.stepData?.options)
-</script> -->
+  stepData: Object,
+});
+const emit = defineEmits(["optionClick"]);
+const texts = computed(() => props.stepData?.texts);
+const options = computed(() => props.stepData?.options);
+</script>
 
 <template>
-  <!-- <div class="wrapper">
+  <div class="wrapper">
     <div class="content-left">
       <div class="texts">
         <p v-for="(text, index) in texts" :key="index">
@@ -18,24 +17,23 @@ const options = computed(() => props.stepData?.options)
         </p>
       </div>
       <div class="buttons">
-        <button
+        <ui-button
           v-for="(option, index) in options"
-          type="button"
           :key="index"
+          class="primary"
           @click="emit('optionClick', option.nextStep)"
         >
           {{ option.text }}
-        </button>
+        </ui-button>
       </div>
     </div>
     <div class="content-right">
-      <icon-background />
+      <icons-background />
     </div>
-  </div> -->
-  <div>adventureView</div>
+  </div>
 </template>
 
-<!-- <style lang="scss" scoped>
+<style lang="scss" scoped>
 .wrapper {
   display: flex;
   justify-content: center;
@@ -77,4 +75,4 @@ const options = computed(() => props.stepData?.options)
   flex-wrap: wrap;
   gap: 20px;
 }
-</style> -->
+</style>

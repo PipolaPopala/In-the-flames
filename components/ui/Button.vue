@@ -11,15 +11,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid transparent;
+  border: none;
   background-color: transparent;
-  font-family: Alegreya SC;
+  font-family: "Alegreya SC";
   font-size: 20px;
   font-weight: 400;
   line-height: 35.76px;
-  cursor: pointer;
   transition: all 0.3s;
   color: #000000;
+  cursor: pointer;
 }
 
 .primary {

@@ -1,14 +1,11 @@
 <script setup>
 const stepStore = useStepStore();
-
-const handleOptionClick = (nextStep) => {
-  stepStore.step = nextStep;
-};
 </script>
 
 <template>
   <header class="header">
     <div class="icons-wrapper">
+      <p>шаг истории: {{ stepStore.step }}</p>
       <ui-button @click="console.log('click volume')">
         <icons-volume />
       </ui-button>
@@ -26,9 +23,7 @@ const handleOptionClick = (nextStep) => {
   </main>
 
   <NuxtLink href="/">
-    <ui-button class="primary btn-play-again" @click="handleOptionClick(0)">
-      Начать сначала
-    </ui-button>
+    <ui-button class="primary btn-play-again">Начать сначала</ui-button>
   </NuxtLink>
 </template>
 
