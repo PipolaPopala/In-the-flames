@@ -7,13 +7,10 @@ useHead({
 });
 
 const stepStore = useStepStore();
-
-const handleOptionClick = (nextStep) => {
-  stepStore.step = nextStep;
-};
+const modalStore = useModalStore();
 
 onMounted(() => {
-  stepStore.step = 0;
+  stepStore.handleOptionClick(1);
 });
 </script>
 
@@ -38,18 +35,24 @@ onMounted(() => {
       <p>...Если подумать, не стоит садиться слишком близко к огню.</p>
     </div>
 
-    <NuxtLink href="/adventure">
-      <ui-button class="primary" @click="handleOptionClick(1)">
+    <!-- <NuxtLink href="/adventure">
+      <ui-button class="primary" @click="stepStore.handleOptionClick(1)">
         Начать приключение
       </ui-button>
-    </NuxtLink>
+    </NuxtLink> -->
+    <ui-button class="primary" @click="modalStore.toggleModal">
+      Начать приключение
+    </ui-button>
+    <ui-modal>
+      content inside modal (здесь будет выбор пола персонажа)</ui-modal
+    >
   </section>
 </template>
 
 <style lang="scss" scoped>
 .section {
   max-width: 1100px;
-  padding-top: 80px;
+  padding-top: 3%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;

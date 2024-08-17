@@ -1,9 +1,11 @@
 <script setup>
 import { computed } from "vue";
+const stepStore = useStepStore();
+
 const props = defineProps({
   stepData: Object,
 });
-const emit = defineEmits(["optionClick"]);
+
 const texts = computed(() => props.stepData?.texts);
 const options = computed(() => props.stepData?.options);
 </script>
@@ -21,7 +23,7 @@ const options = computed(() => props.stepData?.options);
           v-for="(option, index) in options"
           :key="index"
           class="primary"
-          @click="emit('optionClick', option.nextStep)"
+          @click="stepStore.handleOptionClick(option.nextStep)"
         >
           {{ option.text }}
         </ui-button>

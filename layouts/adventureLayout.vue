@@ -18,7 +18,7 @@ const stepStore = useStepStore();
     </div>
   </header>
 
-  <main class="main">
+  <main>
     <slot />
   </main>
 
@@ -28,18 +28,11 @@ const stepStore = useStepStore();
 </template>
 
 <style lang="scss" scoped>
-.main {
-  max-width: 100%;
-  height: 100%;
-  margin: 0 auto;
-  color: #88847d;
-}
-
 .header {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  height: 150px;
+  // height: 150px;
   padding-bottom: 5px;
   padding-right: 45px;
 }
