@@ -1,0 +1,88 @@
+:root {
+  font-family: "EB Garamond", serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 36px;
+
+  color-scheme: light dark;
+  color: #88847d;
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100vh;
+}
+
+body {
+  position: relative;
+  height: 100%;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(
+      circle,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.6) 10%,
+      rgba(0, 0, 0, 0.65) 20%,
+      rgba(0, 0, 0, 0.7) 30%,
+      rgba(0, 0, 0, 0.75) 40%,
+      rgba(0, 0, 0, 0.8) 50%,
+      rgba(0, 0, 0, 0.85) 60%,
+      rgba(0, 0, 0, 0.9) 70%,
+      rgba(0, 0, 0, 0.9) 80%,
+      rgba(0, 0, 0, 1) 100%
+    ),
+    url("../img/bg-flames.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(5px);
+  z-index: -1;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+/* looking scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #383633;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1a1917;
+}
+/* looking scrollbar */
