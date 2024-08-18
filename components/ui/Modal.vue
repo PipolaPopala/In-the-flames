@@ -4,12 +4,8 @@ const modalStore = useModalStore();
 
 <template>
   <teleport to="body">
-    <div
-      v-if="modalStore.showModal"
-      class="modal-overlay"
-      @click="modalStore.toggleModal"
-    >
-      <div class="modal" :class="{ active: modalStore.showModal }" @click.stop>
+    <div v-if="modalStore.showModal" class="modal-overlay">
+      <div class="modal" :class="{ active: modalStore.showModal }">
         <slot />
       </div>
     </div>
@@ -23,20 +19,20 @@ const modalStore = useModalStore();
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.modal {
-  min-width: 500px;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 5px;
-}
+// .modal {
+//   padding: 20px;
+//   background-color: transparent;
+//   border-radius: 5px;
+// }
 
-.modal.active {
-  // в теории для будущей анимации появления модалки здесь нужно крутиться со стилями
-}
+// .modal.active {
+//   // в теории для будущей анимации появления модалки здесь нужно крутиться со стилями
+// }
 </style>

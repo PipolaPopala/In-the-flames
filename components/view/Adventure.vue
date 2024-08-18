@@ -30,7 +30,7 @@ const options = computed(() => props.stepData?.options);
       </div>
     </div>
     <div class="content-right">
-      <icons-background />
+      <icon-background />
     </div>
   </div>
 </template>
@@ -72,8 +72,6 @@ const options = computed(() => props.stepData?.options);
 
 .buttons {
   display: flex;
-  /* flex-direction: column;
-  align-items: center; */
   flex-wrap: wrap;
   gap: 20px;
 }

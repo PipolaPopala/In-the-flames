@@ -19,5 +19,5 @@ watch(stepStore, () => {
 </script>
 
 <template>
-  <adventure-view :stepData="stepData" />
+  <view-adventure :stepData="stepData" />
 </template>

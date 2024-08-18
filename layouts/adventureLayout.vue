@@ -7,13 +7,13 @@ const stepStore = useStepStore();
     <div class="icons-wrapper">
       <p>шаг истории: {{ stepStore.step }}</p>
       <ui-button @click="console.log('click volume')">
-        <icons-volume />
+        <icon-volume />
       </ui-button>
       <ui-button @click="console.log('click play-circle')">
-        <icons-play-circle />
+        <icon-play-circle />
       </ui-button>
       <ui-button @click="console.log('click sex-male')">
-        <icons-sex-male />
+        <icon-male />
       </ui-button>
     </div>
   </header>
