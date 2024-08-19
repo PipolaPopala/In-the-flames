@@ -14,6 +14,7 @@ const stepStore = useStepStore();
       </ui-button>
       <ui-button @click="console.log('click sex-male')">
         <icon-male />
+        <!-- реализовать зависимость иконки от выбранного в пола  -->
       </ui-button>
     </div>
   </header>

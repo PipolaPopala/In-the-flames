@@ -42,4 +42,8 @@
   border: 1px solid #ea2433;
   box-shadow: 0px 0px 5px #ea2433;
 }
+
+[disabled] {
+  background-color: rgba(170, 151, 123, 0.33);
+}
 </style>

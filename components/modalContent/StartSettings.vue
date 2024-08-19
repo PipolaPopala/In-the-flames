@@ -1,28 +1,21 @@
 <script setup>
 const characterStore = useCharacterStore();
+const modalStore = useModalStore();
 const stepStore = useStepStore();
 
-// const handleChoice = (gender) => {
-//   characterStore.setGender(gender);
-// };
-
-const character = reactive({
-  name: null,
-  age: null,
-  gender: null,
-  job: null,
-}); // с локальным состоянием работает, с состоянием из хранилища пока нет, почему-то туда передаётся undefined
+const gender = computed(() => {
+  return characterStore.character.gender;
+});
 
 const handleChoice = (gender) => {
-  character.gender = gender;
+  characterStore.setGender(gender);
 };
 
-// watch(characterStore, () => {
-//   console.log("gender: ", characterStore.gender);
-// });
-watch(character, () => {
-  console.log("gender: ", character.gender);
-});
+const handleCloseModal = () => {
+  setTimeout(() => {
+    modalStore.toggleModal();
+  }, 500);
+};
 </script>
 
 <template>
@@ -30,33 +23,30 @@ watch(character, () => {
     <p class="title">Выберите пол персонажа</p>
     <div class="options">
       <ui-button @click="handleChoice('мужской')">
-        <icon-male-active v-if="character.gender === 'мужской'" />
+        <icon-male-active v-if="gender === 'мужской'" />
         <icon-male-default v-else />
       </ui-button>
       <ui-button @click="handleChoice('женский')">
-        <icon-female-active v-if="character.gender === 'женский'" />
+        <icon-female-active v-if="gender === 'женский'" />
         <icon-female-default v-else />
       </ui-button>
-
-      <!-- <icon-male-default /> -->
-      <!-- <icon-male-hover /> -->
-      <!-- <icon-male-active /> -->
-
-      <!-- возможно, надо в сами иконки записать логику наведения и активности -->
-
-      <!-- <icon-female-default /> -->
-      <!-- <icon-female-hover /> -->
-      <!-- <icon-female-active /> -->
     </div>
+
     <NuxtLink href="/adventure">
-      <ui-button
-        class="primary"
-        @click="stepStore.handleOptionClick(1)"
-        disabled
-      >
+      <ui-button class="primary" @click="handleCloseModal" :disabled="!gender">
         Продолжить
       </ui-button>
     </NuxtLink>
+
+    <!-- <icon-male-default /> -->
+    <!-- <icon-male-hover /> -->
+    <!-- <icon-male-active /> -->
+
+    <!-- возможно, надо в сами иконки записать логику наведения и активности -->
+
+    <!-- <icon-female-default /> -->
+    <!-- <icon-female-hover /> -->
+    <!-- <icon-female-active /> -->
   </div>
 </template>
 
