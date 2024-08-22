@@ -20,15 +20,23 @@
   transition: all 0.3s;
   color: #000000;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .primary {
-  border-radius: 5px;
-  padding: 15px 30px 15px 30px;
+  padding: 15px 30px;
   background-color: #ff9900;
 }
 
+.secondary {
+  padding: 15px 30px;
+  color: #ff9900;
+  border: 1px solid #ff9900;
+}
+
 .btn-play-again {
+  font-size: 16px;
+  padding: 10px 20px;
   position: absolute;
   bottom: 45px;
   right: 45px;

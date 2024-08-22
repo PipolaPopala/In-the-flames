@@ -11,7 +11,7 @@ const options = computed(() => props.stepData?.options);
 </script>
 
 <template>
-  <div class="wrapper">
+  <section class="wrapper">
     <div class="content-left">
       <div class="texts">
         <p v-for="(text, index) in texts" :key="index">
@@ -32,7 +32,7 @@ const options = computed(() => props.stepData?.options);
     <div class="content-right">
       <icon-background />
     </div>
-  </div>
+  </section>
 </template>
 
 <style lang="scss" scoped>
