@@ -1,5 +1,6 @@
 <script setup>
 const stepStore = useStepStore();
+const characterStore = useCharacterStore();
 </script>
 
 <template>
@@ -13,8 +14,8 @@ const stepStore = useStepStore();
         <icon-play-circle />
       </ui-button>
       <ui-button @click="console.log('click sex-male')">
-        <icon-male />
-        <!-- реализовать зависимость иконки от выбранного в пола  -->
+        <icon-male v-if="characterStore.character.gender === 'мужской'" />
+        <icon-female v-else />
       </ui-button>
     </div>
   </header>

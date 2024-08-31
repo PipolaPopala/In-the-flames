@@ -1,4 +1,14 @@
-<script setup></script>
+<script setup>
+const characteristicStore = useCharacteristicStore();
+
+const handleChoice = () => {
+  characteristicStore.setCharacteristic(characteristic);
+};
+
+const isDone = computed(() => {
+  return false;
+});
+</script>
 
 <template>
   <section class="wrapper">
@@ -20,19 +30,12 @@
       </div>
     </div>
     <div class="content-right">
-      <form class="stats">
-        <stat title-cut="Сил" title-full="Сила" />
-        <stat title-cut="Лов" title-full="Ловкость" />
-        <stat title-cut="Тел" title-full="Телосложение" />
-        <stat title-cut="Вын" title-full="Выносливость" />
-        <stat title-cut="Нар" title-full="Наружность" />
-        <stat title-cut="Мощ" title-full="Мощь" />
-        <stat title-cut="Инт" title-full="Интеллект" />
-        <stat title-cut="Обр" title-full="Образование" />
-      </form>
+      <characteristic-select />
       <div class="buttons">
         <ui-button class="secondary">Распределить случайно</ui-button>
-        <ui-button class="primary" disabled>Готово</ui-button>
+        <ui-button class="primary" @click="handleChoice" :disabled="!isDone">
+          Готово
+        </ui-button>
       </div>
     </div>
   </section>
@@ -87,13 +90,6 @@
   flex-direction: column;
   justify-content: center;
   row-gap: 100px;
-}
-
-.stats {
-  display: flex;
-  flex-wrap: wrap;
-  row-gap: 35px;
-  column-gap: 70px;
 }
 
 .buttons {
