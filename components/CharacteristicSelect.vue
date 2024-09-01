@@ -1,42 +1,22 @@
 <script setup>
+const emit = defineEmits(["update:characteristics"]);
+const props = defineProps(["triggerRandomDistribution"]);
+
 const availableValues = ref([40, 50, 50, 50, 60, 60, 70, 80]);
 const selectedValues = ref(Array(8).fill(null));
 
 const statTittles = [
-  {
-    titleCut: "Сил",
-    titleFull: "Сила",
-  },
-  {
-    titleCut: "Лов",
-    titleFull: "Ловкость",
-  },
-  {
-    titleCut: "Тел",
-    titleFull: "Телосложение",
-  },
-  {
-    titleCut: "Вын",
-    titleFull: "Выносливость",
-  },
-  {
-    titleCut: "Нар",
-    titleFull: "Наружность",
-  },
-  {
-    titleCut: "Мощ",
-    titleFull: "Мощь",
-  },
-  {
-    titleCut: "Инт",
-    titleFull: "Интеллект",
-  },
-  {
-    titleCut: "Обр",
-    titleFull: "Образование",
-  },
+  { titleCut: "Сил", titleFull: "Сила" },
+  { titleCut: "Лов", titleFull: "Ловкость" },
+  { titleCut: "Тел", titleFull: "Телосложение" },
+  { titleCut: "Вын", titleFull: "Выносливость" },
+  { titleCut: "Нар", titleFull: "Наружность" },
+  { titleCut: "Мощ", titleFull: "Мощь" },
+  { titleCut: "Инт", titleFull: "Интеллект" },
+  { titleCut: "Обр", titleFull: "Образование" },
 ];
 
+// Метод для получения доступных опций
 const getAvailableOptions = (currentIndex) => {
   const counts = {};
 
@@ -68,14 +48,31 @@ const getAvailableOptions = (currentIndex) => {
   return availableOptions;
 };
 
+// Принудительно обновляем состояние, чтобы селекты обновили свои опции
 const updateSelection = () => {
-  // Принудительно обновляем состояние, чтобы селекты обновили свои опции
   selectedValues.value = [...selectedValues.value];
 };
 
-watch(selectedValues, () => {
-  console.log(selectedValues.value);
+// Метод для случайного распределения значений
+const randomizeValues = () => {
+  const shuffledValues = availableValues.value.sort(() => 0.5 - Math.random());
+  selectedValues.value = shuffledValues.slice(0, selectedValues.value.length);
+};
+
+// Следим за изменением selectedValues и отсылаем данные родительскому компоненту
+watch(selectedValues, (newValues) => {
+  if (newValues.every((val) => val !== null)) {
+    emit("update:characteristics", newValues);
+  }
 });
+
+// Следим за изменением props.triggerRandomDistribution и вызов метода randomizeValues
+watch(
+  () => props.triggerRandomDistribution,
+  () => {
+    randomizeValues();
+  }
+);
 </script>
 
 <template>

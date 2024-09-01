@@ -1,13 +1,47 @@
 <script setup>
+import { useRouter } from "vue-router";
+const router = useRouter();
 const characteristicStore = useCharacteristicStore();
+const statsStageStore = useStatsStageStore();
 
-const handleChoice = () => {
-  characteristicStore.setCharacteristic(characteristic);
+const characteristics = reactive({
+  strength: null,
+  dexterity: null,
+  constitution: null,
+  endurance: null,
+  appearance: null,
+  power: null,
+  intelligence: null,
+  education: null,
+});
+
+// Вычисляемое свойство для проверки, завершены ли все характеристики
+const isDone = computed(() => {
+  return Object.values(characteristics).every((val) => val !== null);
+});
+
+// Метод для обновления характеристик
+const updateCharacteristics = (newValues) => {
+  const keys = Object.keys(characteristics);
+  keys.forEach((key, index) => {
+    characteristics[key] = newValues[index];
+  });
 };
 
-const isDone = computed(() => {
-  return false;
-});
+// Обработка клика по кнопке "Готово"
+const handleChoice = () => {
+  characteristicStore.setCharacteristics(characteristics);
+  router.push({ path: "/adventure" });
+  setTimeout(() => {
+    statsStageStore.setStageNull();
+  }, 1000);
+};
+
+// Обработка события случайного распределения
+const triggerRandomDistribution = ref(false);
+const distributeRandomly = () => {
+  triggerRandomDistribution.value = !triggerRandomDistribution.value; // переключатель для триггера
+};
 </script>
 
 <template>
@@ -30,9 +64,14 @@ const isDone = computed(() => {
       </div>
     </div>
     <div class="content-right">
-      <characteristic-select />
+      <characteristic-select
+        @update:characteristics="updateCharacteristics"
+        :trigger-random-distribution="triggerRandomDistribution"
+      />
       <div class="buttons">
-        <ui-button class="secondary">Распределить случайно</ui-button>
+        <ui-button class="secondary" @click="distributeRandomly">
+          Распределить случайно
+        </ui-button>
         <ui-button class="primary" @click="handleChoice" :disabled="!isDone">
           Готово
         </ui-button>

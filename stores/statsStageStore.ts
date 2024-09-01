@@ -1,30 +1,41 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 
-export const useStatsStageStore = defineStore("statsStage", () => {
-  const stage = ref("characteristic"); // start state === 'none'
+export const useStatsStageStore = defineStore(
+  "statsStage",
+  () => {
+    const stage = ref<null | string>("characteristic"); // start state === null
 
-  const setStageToCharacteristic = () => {
-    stage.value = "characteristic";
-  };
+    const setStageNull = () => {
+      stage.value = null;
+    };
 
-  const setStageToHealth = () => {
-    stage.value = "health";
-  };
+    const setStageToCharacteristic = () => {
+      stage.value = "characteristic";
+    };
 
-  const setStageToLuck = () => {
-    stage.value = "luck";
-  };
+    const setStageToHealth = () => {
+      stage.value = "health";
+    };
 
-  const setStageToSkills = () => {
-    stage.value = "skills";
-  };
+    const setStageToLuck = () => {
+      stage.value = "luck";
+    };
 
-  return {
-    stage,
-    setStageToCharacteristic,
-    setStageToHealth,
-    setStageToLuck,
-    setStageToSkills,
-  };
-});
+    const setStageToSkills = () => {
+      stage.value = "skills";
+    };
+
+    return {
+      stage,
+      setStageNull,
+      setStageToCharacteristic,
+      setStageToHealth,
+      setStageToLuck,
+      setStageToSkills,
+    };
+  },
+  {
+    persist: true,
+  }
+);

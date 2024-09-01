@@ -1,15 +1,17 @@
 import { defineStore } from "pinia";
 import { reactive } from "vue";
 
+interface ICharacter {
+  name: string | null;
+  age: number | null;
+  gender: string | null;
+  job: string | null;
+}
+
 export const useCharacterStore = defineStore(
   "character",
   () => {
-    const character = reactive<{
-      name: string | null;
-      age: number | null;
-      gender: string | null;
-      job: string | null;
-    }>({
+    const character = reactive<ICharacter>({
       name: null,
       age: null,
       gender: null,

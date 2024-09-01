@@ -14,7 +14,7 @@ const handleChoice = (gender) => {
 const handleCloseModal = () => {
   setTimeout(() => {
     modalStore.toggleModal();
-  }, 500);
+  }, 1000);
 };
 </script>
 
