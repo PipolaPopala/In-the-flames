@@ -11,6 +11,7 @@ const statsStage = useStatsStageStore();
 <template>
   <p v-if="statsStage.stage === null">ещё даже не начало, куда торопишься?</p>
   <view-characteristic v-if="statsStage.stage === 'characteristic'" />
+  <view-health v-if="statsStage.stage === 'health'" />
 </template>
 
 <style lang="scss" scoped></style>

@@ -1,7 +1,6 @@
 import { defineStore } from "pinia";
 import { reactive } from "vue";
 
-// Определение типов для характеристик
 interface ICharacteristics {
   strength: number | null;
   dexterity: number | null;
@@ -16,7 +15,6 @@ interface ICharacteristics {
 export const useCharacteristicStore = defineStore(
   "characteristic",
   () => {
-    // Инициализация хранилища характеристик с типизацией
     const characteristic = reactive<ICharacteristics>({
       strength: null,
       dexterity: null,
@@ -28,14 +26,12 @@ export const useCharacteristicStore = defineStore(
       education: null,
     });
 
-    // Метод для установки характеристик с типизацией параметра
     const setCharacteristics = (
       newCharacteristics: Partial<ICharacteristics>
     ) => {
       Object.assign(characteristic, newCharacteristics);
     };
 
-    // Метод для сброса характеристик
     const resetCharacteristics = () => {
       setCharacteristics({
         strength: null,
