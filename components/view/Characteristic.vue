@@ -29,11 +29,12 @@ const updateCharacteristics = (newValues) => {
 };
 
 // Обработка клика по кнопке "Готово"
-const handleChoice = () => {
+const goNext = () => {
   characteristicStore.setCharacteristics(characteristics);
-  router.push({ path: "/adventure" });
+  // router.push({ path: "/adventure" }); // в финальной версии вернуть это на место
   setTimeout(() => {
-    statsStageStore.setStageNull();
+    // statsStageStore.setStageNull();
+    statsStageStore.setStageToHealth();
   }, 1000);
 };
 
@@ -72,7 +73,7 @@ const distributeRandomly = () => {
         <ui-button class="secondary" @click="distributeRandomly">
           Распределить случайно
         </ui-button>
-        <ui-button class="primary" @click="handleChoice" :disabled="!isDone">
+        <ui-button class="primary" @click="goNext" :disabled="!isDone">
           Готово
         </ui-button>
       </div>

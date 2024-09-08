@@ -2,6 +2,7 @@
 
 <template>
   <button type="button" class="button">
+    <slot name="icon" />
     <slot />
   </button>
 </template>
@@ -21,6 +22,7 @@
   color: #000000;
   cursor: pointer;
   border-radius: 5px;
+  column-gap: 20px;
 }
 
 .primary {

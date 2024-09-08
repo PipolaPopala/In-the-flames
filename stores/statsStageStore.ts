@@ -4,7 +4,7 @@ import { ref } from "vue";
 export const useStatsStageStore = defineStore(
   "statsStage",
   () => {
-    const stage = ref<null | string>("health"); // start state === null
+    const stage = ref<null | string>("characteristic"); // start state === null
 
     const setStageNull = () => {
       stage.value = null;
@@ -34,8 +34,8 @@ export const useStatsStageStore = defineStore(
       setStageToLuck,
       setStageToSkills,
     };
-  },
-  {
-    persist: true,
   }
+  // {
+  //   persist: true,
+  // }
 );

@@ -14,19 +14,24 @@ const goNext = () => {
 <template>
   <section class="wrapper">
     <div class="content-left">
-      <p class="title">Здоровье</p>
+      <p class="title">Удача</p>
       <div class="texts">
         <p class="text">
-          Ваше начальное число пунктов здоровья равно сумме ТЕЛ и ВЫН, деленной
-          на 10 с округлением вниз. В ходе игры текущее здоровье может
-          снижаться, но маловероятно, чтобы оно поднялось выше начального.
+          Ещё у вас есть значение Удачи. Бросьте три шестигранные кости (такой
+          бросок обозначается Зd6) и умножьте результат на 5 - это ваша
+          начальная Удача.
         </p>
       </div>
     </div>
     <div class="content-right">
-      <health />
+      <luck />
       <div class="buttons">
-        <ui-button class="primary" @click="goNext"> Продолжить </ui-button>
+        <ui-button class="primary" @click="goNext">
+          <template v-slot:icon>
+            <icon-dice />
+          </template>
+          Продолжить
+        </ui-button>
       </div>
     </div>
   </section>
