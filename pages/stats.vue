@@ -15,4 +15,3 @@ const statsStage = useStatsStageStore();
   <view-luck v-if="statsStage.stage === 'luck'" />
 </template>
 
-<style lang="scss" scoped></style>

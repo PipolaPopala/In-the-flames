@@ -33,6 +33,8 @@ const goNext = () => {
 </template>
 
 <style lang="scss" scoped>
+@import "~/assets/styles/variables";
+
 .wrapper {
   display: flex;
   justify-content: center;
@@ -53,7 +55,6 @@ const goNext = () => {
 .title {
   font-size: 80px;
   line-height: 150%;
-  color: #88847d;
 }
 
 .texts {
@@ -66,7 +67,7 @@ const goNext = () => {
 }
 
 .text {
-  color: #806c4a;
+  color: $font-color-secondary;
 }
 
 .content-right {

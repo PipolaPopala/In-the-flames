@@ -50,7 +50,6 @@ const options = computed(() => props.stepData?.options);
   display: flex;
   flex-direction: column;
   row-gap: 30px;
-  /* background-color: rgba(36, 65, 55, 0.5); */
 }
 
 .content-right {
@@ -61,7 +60,6 @@ const options = computed(() => props.stepData?.options);
   justify-content: center;
   align-items: center;
   row-gap: 30px;
-  /* background-color: rgba(36, 65, 55, 0.5); */
 }
 
 .texts {

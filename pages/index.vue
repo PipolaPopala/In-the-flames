@@ -16,5 +16,3 @@ onMounted(() => {
 <template>
   <view-start />
 </template>
-
-<style lang="scss" scoped></style>

@@ -8,6 +8,8 @@
 </template>
 
 <style lang="scss" scoped>
+@import "~/assets/styles/variables";
+
 .button {
   display: flex;
   justify-content: center;
@@ -19,7 +21,7 @@
   font-weight: 400;
   line-height: 35.76px;
   transition: all 0.3s;
-  color: #000000;
+  color: $color-black;
   cursor: pointer;
   border-radius: 5px;
   column-gap: 20px;
@@ -27,13 +29,13 @@
 
 .primary {
   padding: 15px 30px;
-  background-color: #ff9900;
+  background-color: $primary-color;
 }
 
 .secondary {
   padding: 15px 30px;
-  color: #ff9900;
-  border: 1px solid #ff9900;
+  color: $primary-color;
+  border: 1px solid $primary-color;
 }
 
 .btn-play-again {
@@ -43,17 +45,17 @@
   bottom: 45px;
   right: 45px;
   background-color: transparent;
-  color: #676767;
-  border: 1px solid #676767;
+  color: $color-gray;
+  border: 1px solid $color-gray;
 }
 
 .btn-play-again:hover {
-  color: #ea2433;
-  border: 1px solid #ea2433;
-  box-shadow: 0px 0px 5px #ea2433;
+  color: $error-color;
+  border: 1px solid $error-color;
+  box-shadow: 0px 0px 5px $error-color;
 }
 
 [disabled] {
-  background-color: rgba(170, 151, 123, 0.33);
+  background-color: $disabled-color;
 }
 </style>

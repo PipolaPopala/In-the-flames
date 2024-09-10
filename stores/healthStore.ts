@@ -26,8 +26,8 @@ export const useHealthStore = defineStore(
       setMaxHealth,
       resetHealth,
     };
-  },
-  {
-    persist: true,
   }
+  // {
+  //   persist: true,
+  // }
 );

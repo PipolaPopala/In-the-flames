@@ -50,8 +50,8 @@ export const useCharacteristicStore = defineStore(
       setCharacteristics,
       resetCharacteristics,
     };
-  },
-  {
-    persist: true,
   }
+  // {
+  //   persist: true,
+  // }
 );

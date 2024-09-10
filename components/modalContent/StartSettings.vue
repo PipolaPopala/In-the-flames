@@ -14,7 +14,7 @@ const handleChoice = (gender) => {
 const handleCloseModal = () => {
   setTimeout(() => {
     modalStore.toggleModal();
-  }, 1000);
+  }, 500);
 };
 </script>
 
@@ -51,6 +51,8 @@ const handleCloseModal = () => {
 </template>
 
 <style lang="scss" scoped>
+@import "~/assets/styles/variables";
+
 .modal-content-start {
   display: flex;
   align-items: center;
@@ -60,7 +62,7 @@ const handleCloseModal = () => {
 
 .title {
   font-size: 80px;
-  color: #b16a00;
+  color: $font-color-title;
 }
 
 .options {

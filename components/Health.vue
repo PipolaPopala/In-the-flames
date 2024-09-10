@@ -12,14 +12,10 @@ const hea = computed(() => {
   return (con.value + end.value) / 10;
 });
 
-watch(
-  hea,
-  () => {
-    healthStore.setMaxHealth(hea.value);
-    healthStore.setHealth(hea.value);
-  },
-  { immediate: true }
-);
+onMounted(() => {
+  healthStore.setMaxHealth(hea.value);
+  healthStore.setHealth(hea.value);
+});
 </script>
 
 <template>
@@ -40,6 +36,8 @@ watch(
 </template>
 
 <style lang="scss" scoped>
+@import "~/assets/styles/variables";
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -51,7 +49,6 @@ watch(
   column-gap: 70px;
   font-size: 33px;
   line-height: 150%;
-  color: #88847d;
   opacity: 0.5;
 }
 
@@ -61,7 +58,6 @@ watch(
   padding: 40px;
   background-color: rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.25);
-  color: #88847d;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -75,21 +71,20 @@ watch(
 .title {
   font-size: 32px;
   line-height: 150%;
-  color: #88847d;
   text-transform: uppercase;
 }
 
 .text {
   font-style: italic;
   font-size: 28px;
-  color: #806c4a;
+  color: $font-color-secondary;
 }
 
 .health-count {
   font-size: 80px;
   line-height: 150%;
   padding-left: 40px;
-  border-left: 1px solid #88847d;
+  border-left: 1px solid $font-color-primary;
 }
 
 .stats-formula {
@@ -97,7 +92,6 @@ watch(
   font-style: italic;
   font-size: 28px;
   line-height: 100%;
-  color: #88847d;
   opacity: 0.5;
 }
 </style>

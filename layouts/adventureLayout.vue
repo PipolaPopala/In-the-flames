@@ -34,7 +34,6 @@ const characterStore = useCharacterStore();
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  // height: 150px;
   padding-bottom: 5px;
   padding-right: 45px;
 }

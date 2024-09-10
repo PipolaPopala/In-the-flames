@@ -105,7 +105,9 @@ watch(
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "~/assets/styles/variables";
+
 .selects-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -123,14 +125,13 @@ watch(
 .title-cut {
   font-size: 32px;
   line-height: 150%;
-  color: #88847d;
   text-transform: uppercase;
 }
 
 .title-full {
   font-style: italic;
   font-size: 28px;
-  color: #806c4a;
+  color: $font-color-secondary;
 }
 
 .custom-select {
@@ -138,7 +139,7 @@ watch(
   height: 70px;
   background-color: rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.25);
-  color: #88847d;
+  color: $font-color-primary;
   font-size: 24px;
   line-height: 150%;
   cursor: pointer;
@@ -152,6 +153,6 @@ watch(
 
 .custom-select option {
   background-color: rgba(0, 0, 0, 0.8);
-  color: #88847d;
+  color: $font-color-primary;
 }
 </style>

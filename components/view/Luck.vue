@@ -1,13 +1,22 @@
 <script setup>
 const router = useRouter();
 const statsStageStore = useStatsStageStore();
+const luckStore = useLuckStore();
 
 const goNext = () => {
   // router.push({ path: "/adventure" }); // в финальной версии вернуть это на место
   setTimeout(() => {
     // statsStageStore.setStageNull();
-    statsStageStore.setStageToLuck();
+    // statsStageStore.setStageToLuck();
   }, 1000);
+};
+
+const calculateLuck = () => {
+  luckStore.setLuck(
+    Array.from({ length: 3 }, () => Math.floor(Math.random() * 6) + 1).reduce(
+      (acc, num) => acc + num
+    ) * 5
+  );
 };
 </script>
 
@@ -26,10 +35,17 @@ const goNext = () => {
     <div class="content-right">
       <luck />
       <div class="buttons">
-        <ui-button class="primary" @click="goNext">
+        <ui-button
+          class="primary"
+          @click="calculateLuck"
+          :disabled="luckStore.luck"
+        >
           <template v-slot:icon>
             <icon-dice />
           </template>
+          3d6 x 5
+        </ui-button>
+        <ui-button class="primary" @click="goNext" :disabled="!luckStore.luck">
           Продолжить
         </ui-button>
       </div>
@@ -38,6 +54,8 @@ const goNext = () => {
 </template>
 
 <style lang="scss" scoped>
+@import "~/assets/styles/variables";
+
 .wrapper {
   display: flex;
   justify-content: center;
@@ -58,7 +76,6 @@ const goNext = () => {
 .title {
   font-size: 80px;
   line-height: 150%;
-  color: #88847d;
 }
 
 .texts {
@@ -71,7 +88,7 @@ const goNext = () => {
 }
 
 .text {
-  color: #806c4a;
+  color: $font-color-secondary;
 }
 
 .content-right {

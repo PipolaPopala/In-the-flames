@@ -5,7 +5,7 @@ const modalStore = useModalStore();
 <template>
   <teleport to="body">
     <div v-if="modalStore.showModal" class="modal-overlay">
-      <div class="modal" :class="{ active: modalStore.showModal }">
+      <div>
         <slot />
       </div>
     </div>
@@ -25,8 +25,4 @@ const modalStore = useModalStore();
   justify-content: center;
   align-items: center;
 }
-
-// в теории для будущей анимации появления модалки здесь нужно крутиться со стилями // или для анимации использовать что-то другое, напрмиер встроенные во vue компоненты анимации
-// .modal {}
-// .modal.active {}
 </style>

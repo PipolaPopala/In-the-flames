@@ -32,6 +32,8 @@ const modalStore = useModalStore();
 </template>
 
 <style lang="scss" scoped>
+@import "~/assets/styles/variables";
+
 .section {
   max-width: 1100px;
   padding-top: 3%;
@@ -45,7 +47,7 @@ const modalStore = useModalStore();
 }
 
 .title {
-  color: #b16a00;
+  color: $font-color-title;
 }
 
 .texts {

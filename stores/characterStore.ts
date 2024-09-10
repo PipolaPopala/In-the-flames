@@ -49,8 +49,8 @@ export const useCharacterStore = defineStore(
       setJob,
       resetCharacter,
     };
-  },
-  {
-    persist: true,
   }
+  // {
+  //   persist: true,
+  // }
 );

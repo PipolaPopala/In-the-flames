@@ -82,6 +82,8 @@ const distributeRandomly = () => {
 </template>
 
 <style lang="scss" scoped>
+@import "~/assets/styles/variables";
+
 .wrapper {
   display: flex;
   justify-content: center;
@@ -102,7 +104,6 @@ const distributeRandomly = () => {
 .title {
   font-size: 80px;
   line-height: 150%;
-  color: #88847d;
 }
 
 .texts {
@@ -115,11 +116,11 @@ const distributeRandomly = () => {
 }
 
 .text {
-  color: #806c4a;
+  color: $font-color-secondary;
 }
 
 .gray {
-  color: #88847d;
+  color: $font-color-primary;
 }
 
 .content-right {

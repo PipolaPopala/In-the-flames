@@ -1,13 +1,17 @@
-<script setup></script>
+<script setup>
+const luckStore = useLuckStore();
+</script>
 
 <template>
   <div class="health-container">
     <div class="health-title">Удача</div>
-    <div class="health-count">?</div>
+    <div class="health-count">{{ luckStore.luck ? luckStore.luck : "?" }}</div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+@import "~/assets/styles/variables";
+
 .health-container {
   width: 456px;
   height: 200px;
@@ -24,7 +28,6 @@
   display: flex;
   font-size: 32px;
   line-height: 150%;
-  color: #88847d;
   text-transform: uppercase;
 }
 
@@ -32,6 +35,6 @@
   font-size: 80px;
   line-height: 150%;
   padding-left: 40px;
-  border-left: 1px solid #88847d;
+  border-left: 1px solid $font-color-primary;
 }
 </style>
